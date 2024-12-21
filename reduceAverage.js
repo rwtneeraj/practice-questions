@@ -50,7 +50,20 @@ const filterHighSalaryEmployees = function (employees) {
 console.log(filterHighSalaryEmployees([{ name: "Alice", salary: 5000, department: "HR" }, { name: "Bob", salary: 7000, department: "HR" }, { name: "Charlie", salary: 4000, department: "IT" }]));
 
 // posts with more than the average number of likes [{postId: 1, likes: 100}, {postId: 2, likes: 200}, {postId: 3, likes: 150}] => [{postId: 2, likes: 200}]
-const filterPopularPosts = function (posts) { };
+const filterPopularPosts = function (posts) {
+  return posts.filter(function (post) {
+    return post.likes > average(posts, "likes");
+  });
+
+};
+
+console.log(filterPopularPosts([{ postId: 1, likes: 100 }, { postId: 2, likes: 200 }, { postId: 3, likes: 150 }]));
 
 // users who have posted more than the average number of posts [{username: "Alice", postCount: 5}, {username: "Bob", postCount: 8}, {username: "Charlie", postCount: 3}] => [{username: "Bob", postCount: 8}]
-const filterActiveUsersByPostCount = function (users) { };
+const filterActiveUsersByPostCount = function (users) {
+  return users.filter(function (user) {
+    return user.postCount > average(users, "postCount");
+  });
+};
+
+console.log(filterActiveUsersByPostCount([{ username: "Alice", postCount: 5 }, { username: "Bob", postCount: 8 }, { username: "Charlie", postCount: 3 }]));
