@@ -27,14 +27,8 @@ console.log(filterHighValueOrders([{ orderId: 1, amount: 20 }, { orderId: 2, amo
 
 // books with reviews higher than the average rating [{title: "Book 1", rating: 4}, {title: "Book 2", rating: 5}, {title: "Book 3", rating: 3}] => [{title: "Book 2", rating: 5}]
 const filterTopRatedBooks = function (books) {
-  let average = 0;
-
-  for (let index = 0; index < books.length; index++) {
-    average = average + +(books[index].rating) / books.length;
-  }
-
   return books.filter(function (book) {
-    return book.rating > average;
+    return book.rating > average(books,"rating");
   });
 };
 

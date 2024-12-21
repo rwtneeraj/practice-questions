@@ -117,7 +117,14 @@ console.log(filterCitiesAboveMedianPopulation([{ name: "City A", population: 200
 
 
 // Apply a discount to each item's price, then filter for items under a certain price [{name: "item1", price: 100}, {name: "item2", price: 50}] => [{name: "item2", price: 45}]
-const filterDiscountedItems = function (items, discount, maxPrice) { };
+const filterDiscountedItems = function (items, discount, maxPrice) {
+  const discountedItem = items.filter(function (item) { return item.price = item.price - (item.price * discount / 100); });
+  return discountedItem.filter(function (item) {
+    return item.price < maxPrice;
+  });
+};
+
+console.log(filterDiscountedItems([{ name: "item1", price: 100 }, { name: "item2", price: 50 }], 10, 50));
 
 // Convert product names to uppercase, then filter for products with names longer than a certain number [{name: "apple"}, {name: "banana"}] => [{name: "APPLE"}]
 const filterLongProductNames = function (products, minLength) { };
