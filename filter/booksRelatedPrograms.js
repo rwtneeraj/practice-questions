@@ -17,4 +17,6 @@ const filterByYear = function (books, year) {
 console.log(filterByYear([{ title: "Book1", year: 2020 }, { title: "Book2", year: 2022 }], 2020));
 
 // Convert book publication dates, then filter for books published after a given year [{title: "Book1", year: 2020}, {title: "Book2", year: 2022}] => [{title: "Book2", year: 2022}]
-const filterRecentBooks = function (books, yearThreshold) { };
+const filterRecentBooks = function (books, yearThreshold) { 
+  
+};

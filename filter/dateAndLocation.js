@@ -44,3 +44,34 @@ console.log(filterRecentActiveUsers([{ username: "alice", lastPostDate: "2024-12
 
 // console.log(filterByDate([{ name: "Event1", date: "2024-12-01" }, { name: "Event2", date: "2024-11-15" }], "2024-12-01"));
 
+
+// Filter users based on their activity level and registration date [{profile: {username: "Alice", status: "active"}, registration: {date: "2020-05-01"}}] => [{profile: {username: "Alice", status: "active"}, registration: {date: "2020-05-01"}}]
+const filterActiveUsersByDate = function (users, status, dateThreshold) {
+  return users.filter(function (user) {
+    return user.profile.status === status && user.registration.date === dateThreshold;
+  });
+};
+
+console.log(filterActiveUsersByDate([{ profile: { username: "Alice", status: "active" }, registration: { date: "2020-05-01" } }, { profile: { username: "bob", status: "active" }, registration: { date: "2020-11-01" } }], "active", "2020-05-01"));
+
+// Filter articles based on author name and publish date [{author: {name: "Alice"}, content: "Article 1", publishDate: "2021-01-01"}] => [{author: {name: "Alice"}, content: "Article 1", publishDate: "2021-01-01"}]
+const filterArticlesByAuthorAndDate = function (articles, authorName, dateThreshold) {
+  return articles.filter(function (article) {
+    return ((article.author.name === authorName && article.publishDate === dateThreshold));
+  });
+};
+
+
+console.log(filterArticlesByAuthorAndDate([{ author: { 'name': "Alice" }, content: "Article 1", publishDate: "2021-01-01" }], "Alice", "2021-01-01"));
+
+// Filter events based on location and date [{location: {city: "New York"}, date: {eventDate: "2022-07-01"}}] => [{location: {city: "New York"}, date: {eventDate: "2022-07-01"}}]
+const filterEventsByLocationAndDate = function (events, city, dateThreshold) {
+  return events.filter(function (event) {
+    return event.location.city === city && event.date.eventDate === dateThreshold;
+  });
+};
+
+const location1 = { location: { city: "New York" }, date: { eventDate: "2022-07-01" } };
+const location2 = { location: { city: "Italy" }, date: { eventDate: "2022-07-01" } };
+console.log(filterEventsByLocationAndDate([location1, location2], "New York", "2022-07-01"));
+

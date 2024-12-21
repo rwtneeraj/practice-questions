@@ -86,25 +86,11 @@ const filterCitiesAboveMedianPopulation = function (cities) {
 console.log(filterCitiesAboveMedianPopulation([{ name: "City A", population: 2000 }, { name: "City B", population: 5000 }, { name: "City C", population: 3000 }]));
 
 
-// Apply a discount to each item's price, then filter for items under a certain price [{name: "item1", price: 100}, {name: "item2", price: 50}] => [{name: "item2", price: 45}]
-const filterDiscountedItems = function (items, discount, maxPrice) {
-  const discountedItem = items.filter(function (item) { return item.price = item.price - (item.price * discount / 100); });
-  return discountedItem.filter(function (item) {
-    return item.price < maxPrice;
-  });
-};
-
-console.log(filterDiscountedItems([{ name: "item1", price: 100 }, { name: "item2", price: 50 }], 10, 50));
-
 // Convert product names to uppercase, then filter for products with names longer than a certain number [{name: "apple"}, {name: "banana"}] => [{name: "APPLE"}]
 const filterLongProductNames = function (products, minLength) {
 
  };
 
-
-
-// Calculate VAT-inclusive prices, then filter for those over a certain threshold [{name: "item1", price: 100}, {name: "item2", price: 50}] => [{name: "item1", price: 120}]
-const filterHighPriceWithVAT = function (products, vatRate, threshold) { };
 
 // Calculate the length of each name, then filter for names longer than a given number [{name: "Alice"}, {name: "Bob"}] => [{name: "Alice"}]
 const filterLongNames = function (people, minLength) { };
@@ -117,17 +103,6 @@ const filterNormalizedScores = function (students, minScore) { };
 const filterActivePosters = function (users, postThreshold) { };
 
 
-// Filter products based on category and price threshold [{category: {type: "electronics"}, name: "Laptop", price: 800}, {category: {type: "furniture"}, name: "Chair", price: 150}] => [{category: {type: "electronics"}, name: "Laptop", price: 800}]
-const filterByCategoryAndPrice = function (products, category, maxPrice) { };
-
-// Filter users based on their activity level and registration date [{profile: {username: "Alice", status: "active"}, registration: {date: "2020-05-01"}}] => [{profile: {username: "Alice", status: "active"}, registration: {date: "2020-05-01"}}]
-const filterActiveUsersByDate = function (users, status, dateThreshold) { };
-
-// Filter orders where the customer's balance is above a certain threshold and the order total is under a certain amount [{customer: {name: "Alice", balance: 1000}, order: {total: 200}}] => [{customer: {name: "Alice", balance: 1000}, order: {total: 200}}]
-const filterOrdersByBalanceAndTotal = function (orders, balanceThreshold, totalThreshold) { };
-
-// Filter articles based on author name and publish date [{author: {name: "Alice"}, content: "Article 1", publishDate: "2021-01-01"}] => [{author: {name: "Alice"}, content: "Article 1", publishDate: "2021-01-01"}]
-const filterArticlesByAuthorAndDate = function (articles, authorName, dateThreshold) { };
 
 // Filter courses by instructor name and course rating [{instructor: {name: "John"}, course: {rating: 4.5}}] => [{instructor: {name: "John"}, course: {rating: 4.5}}]
 const filterCoursesByInstructorAndRating = function (courses, instructorName, ratingThreshold) { };
@@ -137,9 +112,6 @@ const filterProjectsByTeamSizeAndStatus = function (projects, teamSizeThreshold,
 
 // Filter job candidates based on years of experience and their skills [{skills: {languages: ["JavaScript", "Python"]}, experience: {years: 5}}] => [{skills: {languages: ["JavaScript", "Python"]}, experience: {years: 5}}]
 const filterCandidatesByExperienceAndSkills = function (candidates, experienceThreshold, requiredSkills) { };
-
-// Filter events based on location and date [{location: {city: "New York"}, date: {eventDate: "2022-07-01"}}] => [{location: {city: "New York"}, date: {eventDate: "2022-07-01"}}]
-const filterEventsByLocationAndDate = function (events, city, dateThreshold) { };
 
 // Filter customers based on region and membership status [{region: {country: "USA", state: "California"}, membership: {status: "gold"}}] => [{region: {country: "USA", state: "California"}, membership: {status: "gold"}}]
 const filterCustomersByRegionAndStatus = function (customers, region, status) { };
