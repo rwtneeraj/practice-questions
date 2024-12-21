@@ -42,13 +42,6 @@ const filterLongWords = function (words) {
 
 console.log(filterLongWords(["apple", "banana", "kiwi", "grape"]));
 
-// people older than 30 [{name: "Alice", age: 25}, {name: "Bob", age: 35}] => [{name: "Bob", age: 35}]
-
-const filterAdults = function (people) {
-  return people.filter(function (person) { return person.age > 30; });
-};
-
-console.log(filterAdults([{ name: "Alice", age: 25 }, { name: "Bob", age: 35 }]));
 
 // active users [{username: "alice", active: true}, {username: "bob", active: false}] => [{username: "alice", active: true}]
 const filterActiveUsers = function (users) {
@@ -66,13 +59,6 @@ const filterNumbersGreaterThanTen = function (numbers) {
 console.log(filterNumbersGreaterThanTen([5, 12, 7, 18, 3]));
 
 
-// books with more than 200 pages [{title: "Book 1", pages: 150}, {title: "Book 2", pages: 250}] => [{title: "Book 2", pages: 250}]
-const filterLongBooks = function (books) {
-  return books.filter(function (book) { return book.pages > 200; });
-};
-
-console.log(filterLongBooks([{ title: "Book 1", pages: 150 }, { title: "Book 2", pages: 250 }]));
-
 // users with incomplete profiles [{username: "alice", profileComplete: true}, {username: "bob", profileComplete: false}] => [{username: "bob", profileComplete: false}]
 const filterIncompleteProfiles = function (users) {
   return users.filter(function (user) { return user.profileComplete === false; });
@@ -80,12 +66,6 @@ const filterIncompleteProfiles = function (users) {
 
 console.log(filterIncompleteProfiles([{ username: "alice", profileComplete: true }, { username: "bob", profileComplete: false }]));
 
-// students with grades above 80 [{name: "John", grade: 75}, {name: "Jane", grade: 85}] => [{name: "Jane", grade: 85}]
-const filterHighGrades = function (students) {
-  return students.filter(function (student) { return student.grade > 80; });
-};
-
-console.log(filterHighGrades([{ name: "John", grade: 75 }, { name: "Jane", grade: 85 }]));
 
 // products that are in stock [{product: "apple", inStock: true}, {product: "banana", inStock: false}] => [{product: "apple", inStock: true}]
 const filterInStockProducts = function (products) {
@@ -94,16 +74,6 @@ const filterInStockProducts = function (products) {
 
 console.log(filterInStockProducts([{ product: "apple", inStock: true }, { product: "banana", inStock: false }]));
 
-// students who passed all subjects [{name: "John", subjects: [{name: "Math", passed: true}, {name: "Science", passed: true}]}, {name: "Jane", subjects: [{name: "Math", passed: false}, {name: "Science", passed: true}]}] => [{name: "John", subjects: [{name: "Math", passed: true}, {name: "Science", passed: true}]}]
-const filterStudentsWithAllSubjectsPassed = function (students) {
-
-  return students.filter(function (student) {
-    return student.subjects.every(function (element) { return element.passed; });
-  });
-
-};
-
-console.log(filterStudentsWithAllSubjectsPassed([{ name: "John", subjects: [{ name: "Math", passed: true }, { name: "Science", passed: true }] }, { name: "Jane", subjects: [{ name: "Math", passed: false }, { name: "Science", passed: true }] }]));
 
 // cities with a population higher than the median [{name: "City A", population: 2000}, {name: "City B", population: 5000}, {name: "City C", population: 3000}] => [{name: "City B", population: 5000}]
 const filterCitiesAboveMedianPopulation = function (cities) {
@@ -127,13 +97,11 @@ const filterDiscountedItems = function (items, discount, maxPrice) {
 console.log(filterDiscountedItems([{ name: "item1", price: 100 }, { name: "item2", price: 50 }], 10, 50));
 
 // Convert product names to uppercase, then filter for products with names longer than a certain number [{name: "apple"}, {name: "banana"}] => [{name: "APPLE"}]
-const filterLongProductNames = function (products, minLength) { };
+const filterLongProductNames = function (products, minLength) {
 
-// Group users by their age, then filter for specific age groups [{name: "Alice", age: 25}, {name: "Bob", age: 35}] => [{name: "Bob", age: 35}]
-const filterAgeGroups = function (users, ageGroup) { };
+ };
 
-// Convert grades to letter grades, then filter for students who passed [{name: "Alice", grade: 90}, {name: "Bob", grade: 55}] => [{name: "Alice", grade: 90}]
-const filterPassingGrades = function (students, passingGrade) { };
+
 
 // Calculate VAT-inclusive prices, then filter for those over a certain threshold [{name: "item1", price: 100}, {name: "item2", price: 50}] => [{name: "item1", price: 120}]
 const filterHighPriceWithVAT = function (products, vatRate, threshold) { };
@@ -144,14 +112,10 @@ const filterLongNames = function (people, minLength) { };
 // Normalize scores to a standard range, then filter for students who passed [{name: "John", score: 50}, {name: "Jane", score: 80}] => [{name: "Jane", score: 80}]
 const filterNormalizedScores = function (students, minScore) { };
 
-// Convert book publication dates, then filter for books published after a given year [{title: "Book1", year: 2020}, {title: "Book2", year: 2022}] => [{title: "Book2", year: 2022}]
-const filterRecentBooks = function (books, yearThreshold) { };
 
 // Count the number of posts for each user, then filter for users with more than a specific number of posts [{username: "Alice", posts: 100}, {username: "Bob", posts: 50}] => [{username: "Alice", posts: 100}]
 const filterActivePosters = function (users, postThreshold) { };
 
-// Convert students' grades to letter grades, then filter for students who received a specific grade [{name: "Alice", grade: 90}, {name: "Bob", grade: 85}] => [{name: "Alice", grade: 90}]
-const filterSpecificGrade = function (students, grade) { };
 
 // Filter products based on category and price threshold [{category: {type: "electronics"}, name: "Laptop", price: 800}, {category: {type: "furniture"}, name: "Chair", price: 150}] => [{category: {type: "electronics"}, name: "Laptop", price: 800}]
 const filterByCategoryAndPrice = function (products, category, maxPrice) { };
@@ -195,8 +159,6 @@ const filterOrdersByItemPrice = function (orders, maxPrice) { };
 // Filter events where at least one speaker is a particular person [{event: {name: "Tech Talk", speakers: [{name: "John"}, {name: "Alice"}]}}] => [{event: {name: "Tech Talk", speakers: [{name: "John"}, {name: "Alice"}]}}]
 const filterEventsBySpeaker = function (events, speakerName) { };
 
-// Filter students where at least one class has a passing grade [{student: {name: "Tom", classes: [{name: "Math", grade: "B"}, {name: "History", grade: "C"}]}}] => [{student: {name: "Tom", classes: [{name: "Math", grade: "B"}, {name: "History", grade: "C"}]}}]
-const filterStudentsByClassGrade = function (students, passingGrade) { };
 
 // Filter employees where at least one project has been completed [{employee: {name: "Alice", projects: [{name: "Project X", completed: true}, {name: "Project Y", completed: false}]}}] => [{employee: {name: "Alice", projects: [{name: "Project X", completed: true}, {name: "Project Y", completed: false}]}}]
 const filterEmployeesByCompletedProject = function (employees) { };
@@ -216,8 +178,6 @@ const filterCarsByFeatureType = function (cars, featureType) { };
 // Filter teams where at least one member has a specific skill [{team: {name: "Dev Team", members: [{name: "Alice", skills: ["JavaScript", "React"]}, {name: "Bob", skills: ["Python", "Django"]}]}}] => [{team: {name: "Dev Team", members: [{name: "Alice", skills: ["JavaScript", "React"]}, {name: "Bob", skills: ["Python", "Django"]}]}}]
 const filterTeamsBySkill = function (teams, skill) { };
 
-// Filter students where at least one grade is above a certain threshold [{student: {name: "Tom", grades: [{subject: "Math", grade: 85}, {subject: "English", grade: 72}]}}] => [{student: {name: "Tom", grades: [{subject: "Math", grade: 85}, {subject: "English", grade: 72}]}}]
-const filterStudentsByGrade = function (students, minGrade) { };
 
 // Filter books where at least one author has won a specific award [{book: {title: "Book 1", authors: [{name: "Author A", awards: ["Pulitzer"]}, {name: "Author B", awards: ["Nobel"]}]}}] => [{book: {title: "Book 1", authors: [{name: "Author A", awards: ["Pulitzer"]}, {name: "Author B", awards: ["Nobel"]}]}}]
 const filterBooksByAward = function (books, award) { };
