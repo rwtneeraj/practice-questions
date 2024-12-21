@@ -68,7 +68,7 @@ const filterHighGrades = function (students) {
   return students.filter(function (student) { return student.grade > 80; });
 };
 
-console.log(filterHighGrades([{ name: "John", grade: 75 }, { name: "Jane", grade: 85 }]));/
+console.log(filterHighGrades([{ name: "John", grade: 75 }, { name: "Jane", grade: 85 }]));
 
 // products that are in stock [{product: "apple", inStock: true}, {product: "banana", inStock: false}] => [{product: "apple", inStock: true}]
 const filterInStockProducts = function (products) {
@@ -77,10 +77,16 @@ const filterInStockProducts = function (products) {
 
 console.log(filterInStockProducts([{ product: "apple", inStock: true }, { product: "banana", inStock: false }]));
 
-
 // students who passed all subjects [{name: "John", subjects: [{name: "Math", passed: true}, {name: "Science", passed: true}]}, {name: "Jane", subjects: [{name: "Math", passed: false}, {name: "Science", passed: true}]}] => [{name: "John", subjects: [{name: "Math", passed: true}, {name: "Science", passed: true}]}]
-const filterStudentsWithAllSubjectsPassed = function (students) { };
+const filterStudentsWithAllSubjectsPassed = function (students) {
 
+  return students.filter(function (student) {
+    return student.subjects.every(function (element) { return element.passed; });
+  });
+
+};
+
+console.log(filterStudentsWithAllSubjectsPassed([{ name: "John", subjects: [{ name: "Math", passed: true }, { name: "Science", passed: true }] }, { name: "Jane", subjects: [{ name: "Math", passed: false }, { name: "Science", passed: true }] }]));
 
 
 // cities with a population higher than the median [{name: "City A", population: 2000}, {name: "City B", population: 5000}, {name: "City C", population: 3000}] => [{name: "City B", population: 5000}]
