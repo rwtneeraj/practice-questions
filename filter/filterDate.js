@@ -32,4 +32,15 @@ const filterRecentActiveUsers = function (users) {
 
 console.log(filterRecentActiveUsers([{ username: "alice", lastPostDate: "2024-12-15", active: true }, { username: "bob", lastPostDate: "2024-11-20", active: true }]));
 
+// filter events that occur before a certain date [{name: "Event1", date: "2024-12-01"}, {name: "Event2", date: "2024-11-15"}] => [{name: "Event2", date: "2024-11-15"}]
+const filterByDate = function (events, date) {
+  const certainDate = date.split("-");
+  return events.filter(function (event) {
+    const eventDate = event.date.split("-");
+    return eventDate[0] <= certainDate[0] && eventDate[1] <= certainDate[1] && (eventDate[1] === certainDate[1] && eventDate[2] > certainDate[2]);
+  }
+  );
+};
+
+console.log(filterByDate([{ name: "Event1", date: "2024-12-01" }, { name: "Event2", date: "2024-11-15" }], "2024-12-01"));
 

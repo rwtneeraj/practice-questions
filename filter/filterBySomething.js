@@ -25,20 +25,14 @@ const filterByMathGrade = function (students, grade) {
 
 console.log(filterByMathGrade([{ name: "John", grades: { math: 80, science: 90 } }, { name: "Jane", grades: { math: 70, science: 85 } }], 70));
 
-// filter events that occur before a certain date [{name: "Event1", date: "2024-12-01"}, {name: "Event2", date: "2024-11-15"}] => [{name: "Event2", date: "2024-11-15"}]
-const filterByDate = function (events, date) {
-  const certainDate = date.split("-");
-  return events.filter(function (event) {
-    const eventDate = event.date.split("-");
-    return eventDate[0] <= certainDate[0] && eventDate[1] <= certainDate[1] && (eventDate[1] === certainDate[1] && eventDate[2] > certainDate[2]);
-  }
-  );
+// filter employees who earn more than a certain salary [{name: "Alice", salary: 5000}, {name: "Bob", salary: 7000}] => [{name: "Bob", salary: 7000}]
+const filterBySalary = function (employees, salary) {
+  return employees.filter(function (employee) {
+    return employee.salary > salary;
+  });
 };
 
-console.log(filterByDate([{ name: "Event1", date: "2024-12-01" }, { name: "Event2", date: "2024-11-15" }], "2024-12-01"));
-
-// filter employees who earn more than a certain salary [{name: "Alice", salary: 5000}, {name: "Bob", salary: 7000}] => [{name: "Bob", salary: 7000}]
-const filterBySalary = function (employees, salary) { };
+console.log(filterBySalary([{ name: "Alice", salary: 5000 }, { name: "Bob", salary: 7000 }], 5000));
 
 // filter orders with a quantity greater than a given number [{orderId: 1, quantity: 10}, {orderId: 2, quantity: 5}] => [{orderId: 1, quantity: 10}]
 const filterByQuantity = function (orders, quantity) { };
