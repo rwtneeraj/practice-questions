@@ -4,20 +4,34 @@ const isEven = function (num) {
 
 // even numbers [1, 2, 3, 4, 5] => [2, 4]
 const filterEvenNumbers = function (numbers) {
-    return numbers.filter(function (num) {
+  return numbers.filter(function (num) {
     if (isEven(num)) {
       return num;
     }
   });
- };
+};
 
-console.log(filterEvenNumbers([1, 2, 3, 4, 5]));
+// console.log(filterEvenNumbers([1, 2, 3, 4, 5]));
 
 // words with more than 5 letters ["apple", "banana", "kiwi", "grape"] => ["banana"]
-const filterLongWords = function (words) { };
+
+const filterLongWords = function (words) {
+  return words.filter(function (words) {
+    if (words.length > 5) {
+      return words;
+    }
+  });
+};
+
+// console.log(filterLongWords(["apple", "banana", "kiwi", "grape"]));
 
 // people older than 30 [{name: "Alice", age: 25}, {name: "Bob", age: 35}] => [{name: "Bob", age: 35}]
-const filterAdults = function (people) { };
+
+const filterAdults = function (people) {
+  return people.filter(function (person) { return person.age > 30; });
+};
+
+console.log(filterAdults([{ name: "Alice", age: 25 }, { name: "Bob", age: 35 }]));
 
 // active users [{username: "alice", active: true}, {username: "bob", active: false}] => [{username: "alice", active: true}]
 const filterActiveUsers = function (users) { };
