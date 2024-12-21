@@ -2,6 +2,23 @@ const isEven = function (num) {
   return num % 2 === 0;
 };
 
+const getMedian = function (objects, key) {
+  const array = [];
+
+  for (let i = 0; i < objects.length; i++) {
+    array.push(objects[i][key]);
+  }
+
+  array.sort(function (a, b) { return a - b; });
+
+  for (let i = 0; i < array.length; i++) {
+    if (isEven(array.length)) {
+      return (array[array.length / 2 - 1] + array[array.length / 2]) / 2;
+    }
+    return array[Math.floor(array.length / 2)];
+  }
+};
+
 // even numbers [1, 2, 3, 4, 5] => [2, 4]
 const filterEvenNumbers = function (numbers) {
   return numbers.filter(function (num) {
@@ -90,8 +107,14 @@ console.log(filterStudentsWithAllSubjectsPassed([{ name: "John", subjects: [{ na
 
 
 // cities with a population higher than the median [{name: "City A", population: 2000}, {name: "City B", population: 5000}, {name: "City C", population: 3000}] => [{name: "City B", population: 5000}]
-const filterCitiesAboveMedianPopulation = function (cities) { };
+const filterCitiesAboveMedianPopulation = function (cities) {
+  return cities.filter(function (city) {
+    return city.population > getMedian(cities, "population");
+  }
+  );
+};
 
+console.log(filterCitiesAboveMedianPopulation([{ name: "City A", population: 2000 }, { name: "City B", population: 5000 }, { name: "City C", population: 3000 }]));
 
 
 // filter people older than a certain age [{name: "Alice", age: 25}, {name: "Bob", age: 30}, {name: "Charlie", age: 22}] => [{name: "Bob", age: 30}]
