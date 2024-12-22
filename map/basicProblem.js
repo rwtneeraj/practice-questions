@@ -298,3 +298,48 @@ const scaleToMax100 = function (numbers) {
 
 console.log("actual : ", scaleToMax100([20, 50, 80]));
 console.log("expected : ", [25, 62.5, 100]);
+
+// map each number to the difference between it and the average of the array in [10, 20, 30] => [-10, 0, 10]
+const getAverage = function (numbers) {
+  let sum = 0;
+
+  for (let index = 0; index < numbers.length; index++) {
+    sum += numbers[index];
+  }
+
+  return sum / numbers.length;
+};
+
+const differencesFromMean = function (numbers) {
+  const average = getAverage(numbers);
+  return numbers.map(function (number) { return number - average; });
+};
+
+console.log("actual : ", differencesFromMean([10, 20, 30]));
+console.log("expected : ", [-10, 0, 10]);
+
+// map each string to its frequency in ["apple", "banana", "apple", "apple", "banana"] => [3, 2, 3, 3, 2]
+
+const getFrequency = function (strings, occurence) {
+  return strings.reduce(function (noOfOccurence, string) {
+    noOfOccurence += string === occurence ? 1 : 0;
+    return noOfOccurence;
+  }, 0);
+};
+const stringFrequencies = function (strings) {
+  return strings.map(function (string) {
+    return getFrequency(strings, string);
+  });
+};
+
+console.log("actual : ", stringFrequencies(["apple", "banana", "apple", "apple", "banana"]));
+console.log("expected : ", [3, 2, 3, 3, 2]);
+
+// mark the largest number in an array as true, others as false in [1, 3, 2] => [false, true, false]
+const markLargestNumber = function (numbers) {
+  const largest = getLargest(numbers);
+  return numbers.map(function (number) { return number === largest; });
+};
+
+console.log("actual : ", markLargestNumber([1, 3, 2]));
+console.log("expected : ", [false, true, false]);

@@ -18,20 +18,16 @@ const calculateRanks = function (objects) {
 };
 
 
+const getLargest = function (numbers) {
+  return numbers.reduce(function (largest, number) { return largest < number ? number : largest; }, -Infinity);
+};
 
-
-// map each number to the difference between it and the average of the array in [10, 20, 30] => [-10, 0, 10]
-const differencesFromMean = function (numbers) { };
-
-// map each string to its frequency in ["apple", "banana", "apple", "apple", "banana"] => [3, 2, 3, 3, 2]
-const stringFrequencies = function (strings) { };
-
-// mark the largest number in an array as true, others as false in [1, 3, 2] => [false, true, false]
-const markLargestNumber = function (numbers) { };
 
 // normalize scores based on a curve: first find the max score, then subtract the mean, and scale the results to a range of 0-100 in [{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }, { name: "Charlie", score: 90 }] => [60, 100, 80]
 // Steps: Find max score, calculate mean, normalize each score.
-const normalizeWithCurve = function (objects) { };
+const normalizeWithCurve = function (objects) { 
+  
+};
 
 // group students by their grades: first categorize them into A, B, C, and so on, then map each student to their respective category in [{ name: "Alice", grade: 85 }, { name: "Bob", grade: 92 }] => [['Alice', 'B'], ['Bob', 'A']]
 // Steps: Categorize grades, then group students by category.
