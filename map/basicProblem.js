@@ -140,18 +140,24 @@ const reversedArraysOf = function (arrays) {
 console.log(reversedArraysOf([[1, 2, 3], [4, 5, 6]]));
 
 // remove vowels from ["apple", "banana", "grape"] => ["ppl", "bnn", "grp"]
-const withoutVowelsOf = function (strings) {
+
+const removeVowels = function (array) {
   const vowels = "aeiouAIEOU";
+
+  return array.filter(function (element) {
+    if (!(vowels.includes(element))) { return element; }
+  });
+
+};
+
+const withoutVowelsOf = function (strings) {
   return strings.map(function (string) {
-    return string.split("").filter(function (char) {
-      if (!vowels.includes(char)) {
-        return char;
-      }
-    }).join("");
+    return removeVowels(string.split("")).join("");
   });
 };
 
 console.log(withoutVowelsOf(["apple", "banana", "grape"]));
+
 
 // Example: cumulative sum of [1, 2, 3] is [1, 1+2, 1+2+3]
 const sumOFArrays = function (array) {
@@ -343,3 +349,24 @@ const markLargestNumber = function (numbers) {
 
 console.log("actual : ", markLargestNumber([1, 3, 2]));
 console.log("expected : ", [false, true, false]);
+
+// extract unique characters from ["apple", "banana", "grape"] => ["aple", "ban", "grape"]
+// Maintain the order of their first appearance in each string
+const removeDuplicate = function (word) {
+  let uniqueChars = word[0];
+
+  for (let i = 0; i < word.length; i++) {
+    if (!(uniqueChars.includes(word[i]))) {
+      uniqueChars += word[i];
+    }
+  }
+  return uniqueChars;
+
+};
+
+const uniqueCharactersOf = function (strings) {
+  return strings.map(function (string) { return removeDuplicate(string); });
+};
+
+console.log("actual : ", uniqueCharactersOf(["apple", "banana", "grape"]));
+console.log("expected : ",["aple", "ban", "grape"]);
