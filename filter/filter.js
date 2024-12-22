@@ -5,16 +5,17 @@ const isEven = function (num) {
 const getMedian = function (objects, key) {
   const array = [];
 
-  for (let i = 0; i < objects.length; i++) {
-    array.push(objects[i][key]);
+  for (let index = 0; index < objects.length; index++) {
+    array.push(objects[index][key]);
   }
 
   array.sort(function (a, b) { return a - b; });
 
-  for (let i = 0; i < array.length; i++) {
+  for (let index = 0; index < array.length; index++) {
     if (isEven(array.length)) {
       return (array[array.length / 2 - 1] + array[array.length / 2]) / 2;
     }
+
     return array[Math.floor(array.length / 2)];
   }
 };
@@ -66,14 +67,12 @@ const filterIncompleteProfiles = function (users) {
 
 console.log(filterIncompleteProfiles([{ username: "alice", profileComplete: true }, { username: "bob", profileComplete: false }]));
 
-
 // products that are in stock [{product: "apple", inStock: true}, {product: "banana", inStock: false}] => [{product: "apple", inStock: true}]
 const filterInStockProducts = function (products) {
   return products.filter(function (product) { return product.inStock; });
 };
 
 console.log(filterInStockProducts([{ product: "apple", inStock: true }, { product: "banana", inStock: false }]));
-
 
 // cities with a population higher than the median [{name: "City A", population: 2000}, {name: "City B", population: 5000}, {name: "City C", population: 3000}] => [{name: "City B", population: 5000}]
 const filterCitiesAboveMedianPopulation = function (cities) {
@@ -85,18 +84,15 @@ const filterCitiesAboveMedianPopulation = function (cities) {
 
 console.log(filterCitiesAboveMedianPopulation([{ name: "City A", population: 2000 }, { name: "City B", population: 5000 }, { name: "City C", population: 3000 }]));
 
-
 // Convert product names to uppercase, then filter for products with names longer than a certain number [{name: "apple"}, {name: "banana"}] => [{name: "APPLE"}]
 const filterLongProductNames = function (products, minLength) {
-
- };
+  
+};
 
 
 // Calculate the length of each name, then filter for names longer than a given number [{name: "Alice"}, {name: "Bob"}] => [{name: "Alice"}]
 const filterLongNames = function (people, minLength) { };
 
-// Normalize scores to a standard range, then filter for students who passed [{name: "John", score: 50}, {name: "Jane", score: 80}] => [{name: "Jane", score: 80}]
-const filterNormalizedScores = function (students, minScore) { };
 
 
 // Count the number of posts for each user, then filter for users with more than a specific number of posts [{username: "Alice", posts: 100}, {username: "Bob", posts: 50}] => [{username: "Alice", posts: 100}]

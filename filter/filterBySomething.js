@@ -1,5 +1,3 @@
-
-
 // filter employees who earn more than a certain salary [{name: "Alice", salary: 5000}, {name: "Bob", salary: 7000}] => [{name: "Bob", salary: 7000}]
 const filterBySalary = function (employees, salary) {
   return employees.filter(function (employee) {

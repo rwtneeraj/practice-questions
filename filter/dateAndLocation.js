@@ -1,6 +1,5 @@
 // orders placed in the last 30 days [{orderDate: "2024-11-01"}, {orderDate: "2024-12-01"}] => [{orderDate: "2024-12-01"}]
 const filterRecentOrders = function (orders) {
-
   return orders.filter(function (order) {
     const date = order.orderDate.split("-");
     return date[1] === "12" || date[1] < "11" && date[2] > "21";

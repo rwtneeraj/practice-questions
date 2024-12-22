@@ -1,11 +1,12 @@
 const average = function (objects, key) {
-  let average = 0;
-  for (let i = 0; i < objects.length; i++) {
-    average = average + (+(objects[i][key]) / objects.length);
-  }
-  return average;
-};
+  let sum = 0;
 
+  for (let index = 0; index < objects.length; index++) {
+    sum = sum + objects[index][key];
+  }
+ 
+  return sum / objects.length;
+};
 
 // products with a price lower than the average [{name: "item1", price: 10}, {name: "item2", price: 20}, {name: "item3", price: 5}] => [{name: "item1", price: 10}, {name: "item3", price: 5}]
 const filterBelowAveragePrice = function (products) {
@@ -13,7 +14,6 @@ const filterBelowAveragePrice = function (products) {
     return product.price < average(products, "price");
   });
 };
-
 
 // orders that exceed the average order value [{orderId: 1, amount: 20}, {orderId: 2, amount: 50}, {orderId: 3, amount: 10}] => [{orderId: 2, amount: 50}]
 const filterHighValueOrders = function (orders) {
@@ -24,11 +24,10 @@ const filterHighValueOrders = function (orders) {
 
 console.log(filterHighValueOrders([{ orderId: 1, amount: 20 }, { orderId: 2, amount: 50 }, { orderId: 3, amount: 10 }]));
 
-
 // books with reviews higher than the average rating [{title: "Book 1", rating: 4}, {title: "Book 2", rating: 5}, {title: "Book 3", rating: 3}] => [{title: "Book 2", rating: 5}]
 const filterTopRatedBooks = function (books) {
   return books.filter(function (book) {
-    return book.rating > average(books,"rating");
+    return book.rating > average(books, "rating");
   });
 };
 
