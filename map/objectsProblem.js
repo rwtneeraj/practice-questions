@@ -33,7 +33,7 @@ const extractFlags = function (objects) {
 };
 
 console.log("actual : ", extractFlags([{ active: true }, { active: false }]));
-console.log("expected : ",[true, false]);
+console.log("expected : ", [true, false]);
 
 // concatenate first and last names from [{ firstName: "Alice", lastName: "Smith" }, { firstName: "Bob", lastName: "Brown" }] => ["Alice Smith", "Bob Brown"]
 const fullNames = function (objects) {
@@ -67,8 +67,37 @@ const abbreviations = function (objects) {
   return objects.map(function (object) {
     const city = object.city.split(" ").map(function (word) { return word[0].toUpperCase(); }).join("");
     return [city, object.country].join(" ");
-  })
+  });
 };
 
 console.log("actual : ", abbreviations([{ city: "New York", country: "USA" }, { city: "Los Angeles", country: "USA" }]));
 console.log("expected : ", ["NY, USA", "LA, USA"]);
+
+// extract scores for math tests from [{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }] => [90, 80]
+const mathScores = function (objects) {
+  return objects.map(function (object) { return object.scores.math; });
+};
+
+console.log("actual : ", mathScores([{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }]));
+console.log("expected : ", [90, 80]);
+
+// extract coordinates from [{ x: 1, y: 2 }, { x: 3, y: 4 }] => [[1, 2], [3, 4]]
+const extractCoordinates = function (objects) {
+  return objects.map(function (object) {
+    return [object.x, object.y];
+  });
+};
+
+console.log("actual : ", extractCoordinates([{ x: 1, y: 2 }, { x: 3, y: 4 }]));
+console.log("expected : ", [[1, 2], [3, 4]]);
+
+
+// extract full name and age from [{ firstName: "Alice", lastName: "Smith", age: 25 }, { firstName: "Bob", lastName: "Brown", age: 30 }] => [["Alice Smith", 25], ["Bob Brown", 30]]
+const fullNameAndAge = function (objects) {
+  return objects.map(function (object) {
+    return [object.firstName + " " + object.lastName, object.age];
+  });
+};
+
+console.log("actual : ", fullNameAndAge([{ firstName: "Alice", lastName: "Smith", age: 25 }, { firstName: "Bob", lastName: "Brown", age: 30 }]));
+console.log("expected : ", [["Alice Smith", 25], ["Bob Brown", 30]]);

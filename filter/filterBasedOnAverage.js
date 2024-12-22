@@ -60,3 +60,4 @@ const filterActiveUsersByPostCount = function (users) {
 };
 
 console.log(filterActiveUsersByPostCount([{ username: "Alice", postCount: 5 }, { username: "Bob", postCount: 8 }, { username: "Charlie", postCount: 3 }]));
+
