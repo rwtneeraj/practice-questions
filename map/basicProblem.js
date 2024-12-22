@@ -228,3 +228,73 @@ const wrappedStringsOf = function (strings) {
 };
 
 console.log(wrappedStringsOf(["apple", "banana"]));
+
+// calculate percentage contribution of each number in [10, 20, 30] (relative to the total sum) => [16.67, 33.33, 50]
+const percentageContributions = function (numbers) {
+  const sumOfNumbers = numbers.reduce(function (sum, number) { return sum + number; }, 0);
+  return numbers.map(function (number) { return (number * 100) / sumOfNumbers; });
+};
+
+console.log("actual : ", percentageContributions([10, 20, 30]));
+console.log("expected : ", [16.67, 33.33, 50]);
+
+
+// subtract the smallest number from each number in [3, 8, 1] => [2, 7, 0]
+
+const getSmallest = function (numbers) {
+  return numbers.reduce(function (smallest, number) {
+    return smallest < number ? smallest : number;
+  }, Infinity);
+};
+
+const subtractMin = function (numbers) {
+  const smallestNumber = getSmallest(numbers);
+  console.log(smallestNumber);
+  return numbers.map(function (number) { return number - smallestNumber; });
+};
+
+console.log("actual : ", subtractMin([3, 8, 1]));
+console.log("expected : ", [2, 7, 0]);
+
+// normalize strings by the longest string length in ["cat", "elephant", "dog"] => ["cat     ", "elephant", "dog     "]
+// (pad with spaces to match the longest length)
+const getLongest = function (strings) {
+  return strings.reduce(function (length, string) { return length < string.length ? string.length : length; }, -Infinity);
+};
+
+const normalizeStringLengths = function (strings) {
+  const longestLength = getLongest(strings);
+  return strings.map(function (string) { return string.padEnd(longestLength); });
+};
+
+console.log("actual : ", normalizeStringLengths(["cat", "elephant", "dog"]));
+console.log("expected : ", ["cat     ", "elephant", "dog     "]);
+
+// normalize strings by centering them based on the longest string length in ["cat", "elephant", "dog"] => ["  cat   ", "elephant", "  dog   "]
+// (pad with spaces to justify to the center)
+
+const centerJustifyStrings = function (strings) {
+  const longestLength = getLongest(strings);
+
+  return strings.map(function (string) {
+    const requireGap = (longestLength + string.length) / 2;
+    return (string.padStart(requireGap)).padEnd(longestLength);
+  });
+};
+
+console.log("actul : ", centerJustifyStrings(["cat", "elephant", "dog"]));
+console.log("expected : ", ["  cat   ", "elephant", "  dog   "]);
+
+// scale all numbers proportionally so the largest number becomes 100 in [20, 50, 80] => [25, 62.5, 100]
+const getLargest = function (numbers) {
+  return numbers.reduce(function (largest, number) { return largest < number ? number : largest; }, -Infinity);
+};
+
+const scaleToMax100 = function (numbers) {
+  const largest = getLargest(numbers);
+  const percentageRequire = ((100 - largest) * 100) / largest;
+  return numbers.map(function (number) { return number + (number * percentageRequire) / 100; });
+};
+
+console.log("actual : ", scaleToMax100([20, 50, 80]));
+console.log("expected : ", [25, 62.5, 100]);

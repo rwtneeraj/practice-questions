@@ -101,3 +101,41 @@ const fullNameAndAge = function (objects) {
 
 console.log("actual : ", fullNameAndAge([{ firstName: "Alice", lastName: "Smith", age: 25 }, { firstName: "Bob", lastName: "Brown", age: 30 }]));
 console.log("expected : ", [["Alice Smith", 25], ["Bob Brown", 30]]);
+
+// extract scores from [{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }] => [[90, 85], [80, 75]]
+const extractScores = function (objects) {
+  return objects.map(function (object) { return [object.scores.math, object.scores.english]; });
+};
+
+console.log("actual : ", extractScores([{ name: "Alice", scores: { math: 90, english: 85 } }, { name: "Bob", scores: { math: 80, english: 75 } }]));
+console.log("expected : ", [[90, 85], [80, 75]]);
+
+
+// extract key-value pairs from [{ key: "a", value: 1 }, { key: "b", value: 2 }] => [["a", 1], ["b", 2]]
+const keyValuePairs = function (objects) {
+  return objects.map(function (object) { return [object.key, object.value]; });
+};
+
+console.log("actual : ", keyValuePairs([{ key: "a", value: 1 }, { key: "b", value: 2 }]));
+console.log("expected : ", [["a", 1], ["b", 2]]);
+
+
+// split full names into first and last names from [{ name: "Alice Smith" }, { name: "Bob Brown" }] => [["Alice", "Smith"], ["Bob", "Brown"]]
+const splitFullNames = function (objects) {
+  return objects.map(function (object) {
+    return object.name.split(" ");
+  });
+};
+
+console.log("actual : ", splitFullNames([{ name: "Alice Smith" }, { name: "Bob Brown" }]));
+console.log("expected : ", [["Alice", "Smith"], ["Bob", "Brown"]]);
+
+// normalize scores so they fall between 0 and 1 based on the max score from [{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }] => [0.8, 1]
+const normalizeScores = function (objects) {
+  return objects.map(function (object) {
+    return object.score / 100;
+  });
+};
+
+console.log("actual : ", normalizeScores([{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }]));
+console.log("expected : ", [0.8, 1]);
