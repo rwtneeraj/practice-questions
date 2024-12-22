@@ -15,16 +15,15 @@ const normalizeWithCurve = function (objects) {
 
 
 
-// find the difference between the max and min values, and then normalize the array based on this range in [10, 20, 30, 5] => [0.25, 0.75, 1, 0]
-// Steps: Find min, max, calculate range, then normalize each value.
-const normalizeByRange = function (numbers) {
-
-};
-
 // calculate the percentage of each number relative to the total sum of the array, and then sort the percentages in descending order in [100, 200, 50, 25] => [50, 25, 12.5, 12.5]
 // Steps: Calculate sum, find percentage of each number, sort in descending order.
-const percentageOfTotalSorted = function (numbers) { };
+const percentageOfTotalSorted = function (numbers) {
+  
+  return numbers
+};
 
+console.log("actual : ", [100, 200, 50, 25]);
+console.log("expected : ", [50, 25, 12.5, 12.5]);
 // map a list of students' grades in multiple subjects to their average score, and then sort the averages in descending order in [{ name: "Alice", grades: [80, 90, 85] }, { name: "Bob", grades: [70, 75, 80] }] => [{ name: "Alice", avg: 85 }, { name: "Bob", avg: 75 }]
 // Steps: Calculate average for each student, then sort by average score.
 const sortStudentsByAverage = function (students) { };

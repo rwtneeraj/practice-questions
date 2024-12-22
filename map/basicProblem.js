@@ -402,3 +402,19 @@ const sortByLengthAndAlphabet = function (strings) {
 
 console.log("actual : ", sortByLengthAndAlphabet(["cat", "banana", "apple", "kiwi"]));
 console.log("expected : ", ["cat", "kiwi", "apple", "banana"]);
+
+
+// find the difference between the max and min values, and then normalize the array based on this range in [10, 20, 30, 5] => [0.25, 0.75, 1, 0]
+// Steps: Find min, max, calculate range, then normalize each value.
+const normalizeByRange = function (numbers) {
+  const max = Math.max(...numbers);
+  const min = Math.min(...numbers);
+
+  return numbers.map(function (number) {
+    return (number - min) / (max - min);
+  });
+};
+
+console.log("actual : ", normalizeByRange([10, 20, 30, 5]));
+console.log("Expected : ", [0.2, 0.6, 1, 0]);
+
