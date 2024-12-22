@@ -370,3 +370,35 @@ const uniqueCharactersOf = function (strings) {
 
 console.log("actual : ", uniqueCharactersOf(["apple", "banana", "grape"]));
 console.log("expected : ",["aple", "ban", "grape"]);
+
+// generate ranges from [3, 5, 2] => [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]
+const generateRange = function (size) {
+  const range = [];
+  for (let i = 0; i < size; i++) {
+    range.push(i);
+  }
+
+  return range;
+};
+
+const rangesOf = function (numbers) {
+  return numbers.map(function (size) {
+    return generateRange(size);
+  });
+};
+
+console.log("actual : ", rangesOf([3, 5, 2]));
+console.log("expected : ", [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]);
+
+// sort strings by length first, and then alphabetically if lengths are equal in ["cat", "banana", "apple", "kiwi"] => ["cat", "kiwi", "apple", "banana"]
+// Steps: Sort by length, then by lexicographical order.
+const comparator = function (a, b) {
+  return a.length - b.length;
+};
+
+const sortByLengthAndAlphabet = function (strings) {
+  return strings.sort(comparator);
+};
+
+console.log("actual : ", sortByLengthAndAlphabet(["cat", "banana", "apple", "kiwi"]));
+console.log("expected : ", ["cat", "kiwi", "apple", "banana"]);

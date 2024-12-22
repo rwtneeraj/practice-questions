@@ -1,34 +1,25 @@
 
-// generate ranges from [3, 5, 2] => [[0, 1, 2], [0, 1, 2, 3, 4], [0, 1]]
-const rangesOf = function (numbers) {
-  return numbers.map(function (numebr) {
-    return;
-  });
-};
-
-
 // calculate ranks (1-based, descending) for scores in [{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }, { name: "Charlie", score: 90 }] => [2, 1, 3]
+
+
 const calculateRanks = function (objects) {
-  return objects.map(function (object) { return; });
 };
 
 // normalize scores based on a curve: first find the max score, then subtract the mean, and scale the results to a range of 0-100 in [{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }, { name: "Charlie", score: 90 }] => [60, 100, 80]
 // Steps: Find max score, calculate mean, normalize each score.
 const normalizeWithCurve = function (objects) {
-
 };
 
-// group students by their grades: first categorize them into A, B, C, and so on, then map each student to their respective category in [{ name: "Alice", grade: 85 }, { name: "Bob", grade: 92 }] => [['Alice', 'B'], ['Bob', 'A']]
-// Steps: Categorize grades, then group students by category.
-const groupByGrade = function (objects) { };
+// console.log("actual : ", [{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }, { name: "Charlie", score: 90 }]);
+// console.log("expected : ", [60, 100, 80]);
 
-// sort strings by length first, and then alphabetically if lengths are equal in ["cat", "banana", "apple", "kiwi"] => ["cat", "kiwi", "apple", "banana"]
-// Steps: Sort by length, then by lexicographical order.
-const sortByLengthAndAlphabet = function (strings) { };
+
 
 // find the difference between the max and min values, and then normalize the array based on this range in [10, 20, 30, 5] => [0.25, 0.75, 1, 0]
 // Steps: Find min, max, calculate range, then normalize each value.
-const normalizeByRange = function (numbers) { };
+const normalizeByRange = function (numbers) {
+
+};
 
 // calculate the percentage of each number relative to the total sum of the array, and then sort the percentages in descending order in [100, 200, 50, 25] => [50, 25, 12.5, 12.5]
 // Steps: Calculate sum, find percentage of each number, sort in descending order.

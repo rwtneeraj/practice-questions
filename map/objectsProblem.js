@@ -139,3 +139,23 @@ const normalizeScores = function (objects) {
 
 console.log("actual : ", normalizeScores([{ name: "Alice", score: 80 }, { name: "Bob", score: 100 }]));
 console.log("expected : ", [0.8, 1]);
+
+// group students by their grades: first categorize them into A, B, C, and so on, then map each student to their respective category in [{ name: "Alice", grade: 85 }, { name: "Bob", grade: 92 }] => [['Alice', 'B'], ['Bob', 'A']]
+// Steps: Categorize grades, then group students by category.
+const groupByGrade = function (objects) {
+  return objects.map(function (student) {
+    if (student.grade > 90) {
+      return [student.name, "A"];
+    }
+
+    if (student.grade > 75) {
+      return [student.name, "B"];
+    }
+
+    return [student.name, "C"];
+  });
+
+};
+
+console.log("actual : ", groupByGrade([{ name: "Alice", grade: 85 }, { name: "Bob", grade: 92 }]));
+console.log("expected : ", [['Alice', 'B'], ['Bob', 'A']]);
